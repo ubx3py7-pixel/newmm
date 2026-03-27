@@ -24,7 +24,7 @@ def sender(tab_id, args, messages, headless, storage_path):
         browser = p.chromium.launch(headless=headless)
         context = browser.new_context(storage_state=storage_path)
         page = context.new_page()
-        dm_selector = 'div[role="textbox"][aria-label="Message"]'
+        dm_selector =  '[contenteditable="true"][role="textbox"]' 
         try:
             page.goto(args.thread_url, timeout=60000)
             page.wait_for_selector(dm_selector, timeout=30000)
